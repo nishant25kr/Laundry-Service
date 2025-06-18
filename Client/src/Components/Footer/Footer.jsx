@@ -9,18 +9,19 @@ export default function Footer() {
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
                         <Link to="/" className="flex items-center">
-                            <img
-                                src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
-                                className="mr-3 h-16"
-                                alt="Logo"
-                            />
+                            <span className="self-center text-[24px]  font-bold whitespace-nowrap  text-orange-700 ">
+                            Dhobi . 
+                        </span>
+                        <span className='self-center text-[24px]  font-bold whitespace-nowrap text-gray-800'>
+                                G
+                        </span>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
                             <ul className="text-gray-500 font-medium">
-                                <li className="mb-4">
+                                <li className="">
                                     <Link to="/" className="hover:underline">
                                         Home
                                     </Link>
@@ -30,6 +31,11 @@ export default function Footer() {
                                         About
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to="/contact" className="hover:underline">
+                                        ContactUs
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                         <div>
@@ -37,18 +43,23 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <a
-                                        href="https://github.com/hiteshchoudhary"
+                                        href=""
                                         className="hover:underline"
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        Github
+                                        Instagram
                                     </a>
                                 </li>
                                 <li>
-                                    <Link to="/" className="hover:underline">
-                                        Discord
-                                    </Link>
+                                    <a
+                                        href="https://www.linkedin.com/company/dhobigonline/"
+                                        className="hover:underline"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        LinkedIn
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -72,9 +83,9 @@ export default function Footer() {
                 <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-gray-500 sm:text-center">
-                        © 2023
+                        ©2020
                         <a href="https://hiteshchoudhary.com/" className="hover:underline">
-                            hiteshchoudhary
+                            Dhobi G
                         </a>
                         . All Rights Reserved.
                     </span>

@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 //           </span>
 
 //         <div>
-          
+
 //         </div>
 //       </div>
 //     </div>
@@ -79,70 +79,95 @@ import { Link } from "react-router-dom";
 //   );
 // }
 
-
 export default function Home() {
   return (
     <div className="font-sans text-gray-800">
       <section
-        className="h-[90vh] bg-cover bg-center flex flex-col justify-center items-center text-white text-center px-4"
+        className="h-[90vh]  bg-cover bg-center flex flex-col justify-center items-center text-white  text-center  "
         style={{
           backgroundImage: `url("https://images.pexels.com/photos/4414/black-and-white-clean-housework-launderette.jpg")`,
+          
         }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Laundry Pickup & Delivery at Your Doorstep
-        </h1>
-        <div className="flex gap-4">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-lg">
-            Book Now
-          </button>
-          <button className="bg-white text-orange-600 hover:text-orange-700 border border-orange-500 py-2 px-6 rounded-lg">
-            Sign Up
-          </button>
-        </div>
+        {/* <div className="h-[90vh] w-full  bg-cover bg-center flex flex-col justify-center items-center text-white  text-center  "style={
+          {
+            color:"white",
+            backgroundColor:"black",
+            opacity:0.7
+          }
+        }> */}
+
+          <div className="h-[90vh]  bg-cover bg-center flex flex-col justify-center items-center text-white  text-center ">
+            <h1 className=" text-4xl md:text-5xl font-bold mb-4 " >
+            Laundry Pickup & Delivery at Your Doorstep
+          </h1>
+          <div className="flex gap-4">
+            <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-lg">
+              Book Now
+            </button>
+            <button className="bg-white text-orange-600 hover:text-orange-700 border border-orange-500 py-2 px-6 rounded-lg">
+              Sign Up
+            </button>
+          </div>
+          </div>
+        
+          
+
+        {/* </div> */}
+
+          
+
       </section>
 
-      <section className="py-24 bg-gray-100 text-center">
+      <section className="py-18 bg-gray-100 text-center">
         <h2 className="text-3xl font-bold mb-8">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4">
-          <div>
+          <div className="border rounded-xl py-6 ">
             <h3 className="text-xl font-semibold mb-2">1. Schedule Pickup</h3>
             <p>Pick a time and place that works best for you.</p>
           </div>
-          <div>
+          <div className="border rounded-xl py-6 ">
             <h3 className="text-xl font-semibold mb-2">2. We Wash & Fold</h3>
             <p>Your laundry is cleaned, folded, and packaged with care.</p>
           </div>
-          <div>
-            <h3 className="text-xl font-semibold mb-2">3. Delivery at Your Convenience</h3>
+          <div className="border rounded-xl py-6 ">
+            <h3 className="text-xl font-semibold mb-2">
+              3. Delivery at Your Convenience
+            </h3>
             <p>We bring your fresh laundry back—fast and contact-free.</p>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-white text-center">
+      <section className="py-18 bg-white text-center">
         <h2 className="text-3xl font-bold mb-8">Why Choose Us</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
-          <div>
-            <h4 className="text-lg font-semibold mb-2">🚚 Contactless Pickup & Delivery</h4>
+          <div className="border rounded-xl py-6 ">
+            <h4 className="text-lg font-semibold mb-2">
+              🚚 Contactless Pickup & Delivery
+            </h4>
             <p>Safe, easy service from your doorstep.</p>
           </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-2">⏱️ 24-Hour Turnaround</h4>
+          <div className="border rounded-xl py-6 ">
+            <h4 className="text-lg font-semibold mb-2">
+              ⏱️ 24-Hour Turnaround
+            </h4>
             <p>Fast, reliable service when you need it.</p>
           </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-2">💰 Affordable Pricing</h4>
+          <div className="border rounded-xl py-6 ">
+            <h4 className="text-lg font-semibold mb-2">
+              💰 Affordable Pricing
+            </h4>
             <p>Transparent and budget-friendly rates.</p>
           </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-2">🌱 Eco-Friendly Washing</h4>
+          <div className="border rounded-xl py-6 ">
+            <h4 className="text-lg font-semibold mb-2">
+              🌱 Eco-Friendly Washing
+            </h4>
             <p>We care about your clothes and the planet.</p>
           </div>
         </div>
       </section>
-
-      
     </div>
   );
 }
