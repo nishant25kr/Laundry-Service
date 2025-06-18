@@ -11,6 +11,8 @@ import Home from "./Components/Home/Home.jsx";
 import About from "./Components/About/About.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 import Layout from "./Components/Layout.jsx";
+import Order from "./Components/BookOrder/Order.jsx";
+
 
 
 
@@ -46,6 +48,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
+      <Route path="placeOrder" element={<Order />} />
 
 
     </Route>

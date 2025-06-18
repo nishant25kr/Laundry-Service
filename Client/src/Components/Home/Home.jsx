@@ -102,9 +102,9 @@ export default function Home() {
             Laundry Pickup & Delivery at Your Doorstep
           </h1>
           <div className="flex gap-4">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-lg">
+            <Link to="/placeOrder" className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-lg">
               Book Now
-            </button>
+            </Link>
             <button className="bg-white text-orange-600 hover:text-orange-700 border border-orange-500 py-2 px-6 rounded-lg">
               Sign Up
             </button>
