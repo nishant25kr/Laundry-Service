@@ -11,7 +11,7 @@ import Home from "./Components/Home/Home.jsx";
 import About from "./Components/About/About.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 import Layout from "./Components/Layout.jsx";
-import Order from "./Components/BookOrder/Order.jsx";
+import Order from "./Components/PlaceOrder/Order.jsx";
 
 
 
