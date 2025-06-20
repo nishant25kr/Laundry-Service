@@ -38,3 +38,71 @@ def place_order(request):
         return Response({
             "error": str(e)
         }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+
+
+
+
+@api_view(['GET'])
+def get_all_orders(request):
+    try:
+        orders = Order.objects.all()
+        order_list = []
+
+        for order in orders:
+            order_list.append({
+                "id": str(order.id),
+                "name": order.name,
+                "phone": order.phone,
+                "pickup_address": order.pickup_address,
+                "pickup_datetime": order.pickup_datetime.isoformat() if order.pickup_datetime else None,
+                "delivery_address": order.delivery_address,
+                "delivery_datetime": order.delivery_datetime.isoformat() if order.delivery_datetime else None,
+                "clothes": order.clothes,
+                "services": order.services,
+                "payment_mode": order.payment_mode,
+                "status": order.status,
+                "created_at": order.created_at.isoformat() if order.created_at else None,
+            })
+
+        return Response(order_list, status=status.HTTP_200_OK)
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+
+# from django.contrib.auth import authenticate, login
+# from rest_framework.decorators import api_view
+# from rest_framework.response import Response
+
+# @api_view(['POST'])
+# def login_user(request):
+#     username = request.data.get('username')
+#     password = request.data.get('password')
+
+#     user = authenticate(request, username=username, password=password)
+#     if user is not None:
+#         login(request, user)  # Django session login
+#         return Response({'message': 'Login successful'})
+#     else:
+#         return Response({'error': 'Invalid credentials'}, status=400)
+
+
+
+
+
+# @api_view(['POST'])
+# def customer_signup(request):
+#     username = request.data.get('username')
+#     password = request.data.get('password')
+#     phone = request.data.get('phone')
+
+#     if not username or not password:
+#         return Response({"error": "Username and password are required"}, status=400)
+
+#     if CustomUser.objects.filter(username=username).exists():
+#         return Response({"error": "Username already exists"}, status=400)
+
+#     user = CustomUser.objects.create_user(username=username, password=password, phone=phone)
+#     return Response({"message": "Customer registered successfully"}, status=201)

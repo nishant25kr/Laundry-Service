@@ -5,6 +5,8 @@ from django.db import models
 
 from mongoengine import Document, StringField, DateTimeField, ListField, DictField
 from datetime import datetime
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
 class Order(Document):
     name = StringField(required=True)
@@ -24,3 +26,12 @@ class Order(Document):
     status = StringField(default="pending")
     created_at = DateTimeField(default=datetime.utcnow)
     meta = {'collection': 'orders'}
+
+
+
+
+# class CustomUser(AbstractUser):
+#     phone = models.CharField(max_length=15, blank=True)
+
+#     def __str__(self):
+#         return self.username
