@@ -11,16 +11,16 @@ class Order(Document):
     phone = StringField(required=True)
     email = StringField()
 
-    # pickup_address = StringField(required=True)
-    # pickup_datetime = DateTimeField()
-    # delivery_address = StringField()
-    # delivery_datetime = DateTimeField()
+    pickup_address = StringField(required=True)
+    pickup_datetime = DateTimeField()
+    delivery_address = StringField()
+    delivery_datetime = DateTimeField()
 
-    # clothes = DictField()  # e.g., {"shirt": 3}
-    # services = ListField(StringField())
-    # notes = StringField()
-    # payment_mode = StringField(choices=["COD", "Online"])
+    clothes = DictField() 
+    services = ListField(StringField())
+    notes = StringField()
+    payment_mode = StringField(choices=["COD", "Online"])
     
-    # status = StringField(default="pending")
-    # created_at = DateTimeField(default=datetime.utcnow)
-    # meta = {'collection': 'orders'}
+    status = StringField(default="pending")
+    created_at = DateTimeField(default=datetime.utcnow)
+    meta = {'collection': 'orders'}

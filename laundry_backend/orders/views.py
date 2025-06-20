@@ -8,25 +8,24 @@ from datetime import datetime
 def place_order(request):
     try:
         data = request.data
+        pickup_dt = datetime.fromisoformat(data.get("pickup_datetime")) if data.get("pickup_datetime") else None
+        delivery_dt = datetime.fromisoformat(data.get("delivery_datetime")) if data.get("delivery_datetime") else None
 
-        # Safely parse pickup and delivery datetimes
-        # pickup_dt = datetime.fromisoformat(data.get("pickup_datetime")) if data.get("pickup_datetime") else None
-        # delivery_dt = datetime.fromisoformat(data.get("delivery_datetime")) if data.get("delivery_datetime") else None
 
         # Create the order document
         order = Order(
             name=data.get("name"),
             phone=data.get("phone"),
             email=data.get("email"),
-            # pickup_address=data.get("pickup_address"),
-            # pickup_datetime=pickup_dt,
-            # delivery_address=data.get("delivery_address"),
-            # delivery_datetime=delivery_dt,
-            # clothes=data.get("clothes", {}),
-            # services=data.get("services", []),
-            # notes=data.get("notes"),
-            # payment_mode=data.get("payment_mode"),
-            # status="pending",
+            pickup_address=data.get("pickup_address"),
+            pickup_datetime=pickup_dt,
+            delivery_address=data.get("delivery_address"),
+            delivery_datetime=delivery_dt,
+            clothes=data.get("clothes", {}),
+            services=data.get("services", []),
+            notes=data.get("notes"),
+            payment_mode=data.get("payment_mode"),
+            status="pending",
         )
         order.save()
 
