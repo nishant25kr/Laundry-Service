@@ -26,8 +26,8 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <h2 className="text-xl font-bold mb-4">Laundry Man Login</h2>
+    <div className="p-4 max-w-md mx-auto ">
+      <h2 className="text-xl font-bold mb-4">User Login</h2>
       <input
         type="text"
         placeholder="Username"

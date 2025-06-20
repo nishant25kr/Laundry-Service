@@ -71,38 +71,30 @@ def get_all_orders(request):
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import SignupSerializer  # Ensure serializers.py exists and has SignupSerializer
 
-# from django.contrib.auth import authenticate, login
-# from rest_framework.decorators import api_view
-# from rest_framework.response import Response
+@api_view(['POST'])
+def signup_user(request):
+    serializer = SignupSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# orders/views.py
+# from .serializers import LoginSerializer
 
 # @api_view(['POST'])
 # def login_user(request):
-#     username = request.data.get('username')
-#     password = request.data.get('password')
-
-#     user = authenticate(request, username=username, password=password)
-#     if user is not None:
-#         login(request, user)  # Django session login
-#         return Response({'message': 'Login successful'})
-#     else:
-#         return Response({'error': 'Invalid credentials'}, status=400)
-
-
-
-
-
-# @api_view(['POST'])
-# def customer_signup(request):
-#     username = request.data.get('username')
-#     password = request.data.get('password')
-#     phone = request.data.get('phone')
-
-#     if not username or not password:
-#         return Response({"error": "Username and password are required"}, status=400)
-
-#     if CustomUser.objects.filter(username=username).exists():
-#         return Response({"error": "Username already exists"}, status=400)
-
-#     user = CustomUser.objects.create_user(username=username, password=password, phone=phone)
-#     return Response({"message": "Customer registered successfully"}, status=201)
+#     serializer = LoginSerializer(data=request.data)
+#     if serializer.is_valid():
+#         return Response({
+#             "message": "Login successful",
+#             "user": serializer.validated_data
+#         }, status=status.HTTP_200_OK)
+#     return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)

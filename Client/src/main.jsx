@@ -48,9 +48,9 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
       <Route path="placeOrder" element={<Order />} />
-      <Route path="/login" element={<Login />}>
+      {/* <Route path="/login" element={<Login />}> */}
         <Route path="getallorders" element={<GetAllOrders />} />
-      </Route>
+      {/* </Route> */}
     </Route>
   )
 );
