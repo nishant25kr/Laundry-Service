@@ -9,18 +9,17 @@ export default function Order() {
     pickup_datetime: "",
     delivery_address: "",
     delivery_datetime: "",
-    clothes: { shirt: 2, bedsheet: 1 }, // hardcoded for now
-    services: ["wash", "iron"],        // hardcoded for now
+    clothes: { shirt: "1", pant: "1", blanket: "1" }, 
+    services: ["wash", "iron"], 
     notes: "asdfadsfa",
     payment_mode: "COD",
     sameAddress: true,
   });
 
   const handleChange = (e) => {
-    
     try {
       const { name, value, type, checked } = e.target;
-      console.log("hi")
+      console.log("hi");
       if (name === "sameAddress") {
         setForm((prev) => ({
           ...prev,
@@ -34,12 +33,12 @@ export default function Order() {
         }));
       }
     } catch (error) {
-     console.log("error while handel change") 
+      console.log("error while handel change");
     }
   };
 
   const handleSubmit = async () => {
-    console.log("inside handle submit")
+    console.log("inside handle submit");
     const orderData = {
       name: form.name,
       phone: form.phone,
@@ -50,12 +49,16 @@ export default function Order() {
         ? form.pickup_address
         : form.delivery_address,
       delivery_datetime: form.delivery_datetime,
-      clothes: form.clothes,
+      clothes: {
+        shirt: Number(form.shirt)||0,
+        pant: Number(form.pant)||0,
+        blanket: Number(form.blanket)||0,
+      },
       services: form.services,
       notes: form.notes,
       payment_mode: form.payment_mode,
     };
-    console.log("hi")
+    console.log("hi");
 
     try {
       const response = await fetch("http://localhost:8000/api/place-order/", {
@@ -171,6 +174,49 @@ export default function Order() {
             className="input input-bordered"
           />
         </div>
+        <h3 className="text-lg font-semibold ">Clothes</h3>
+        <div className="flex py-3">
+          <div className="mx-2 ">
+            <input
+              type="number"
+              name="shirt"
+              id="shirt"
+              onChange={handleChange}
+              value={form.shirt}
+              defaultValue={0}
+              className="w-8"
+            />
+            <label htmlFor="shirt">Shirts</label>
+          </div>
+
+          <div className="mx-2 ">
+            <input
+              type="number"
+              name="pant"
+              id="pant"
+              value={form.pant}
+              defaultValue={0}
+              onChange={handleChange}
+              className="w-8"
+            />
+            <label htmlFor="pant">Pants</label>
+          </div>
+
+          <div className="mx-2 ">
+            <input
+              type="number"
+              name="blanket"
+              id="blanket"
+              value={form.blanket}
+              defaultValue={0}
+              onChange={handleChange}
+              className="w-8"
+            />
+            <label htmlFor="blanket">blanket</label>
+          </div>
+        </div>
+
+        
 
         <h3 className="text-lg font-semibold mb-2">Payment Preference</h3>
         <div className="flex flex-col gap-2 mb-6">
@@ -204,5 +250,3 @@ export default function Order() {
     </div>
   );
 }
-
-

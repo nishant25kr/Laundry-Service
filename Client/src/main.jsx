@@ -12,9 +12,8 @@ import About from "./Components/About/About.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 import Layout from "./Components/Layout.jsx";
 import Order from "./Components/PlaceOrder/Order.jsx";
-
-
-
+import GetAllOrders from "./Components/GetAllOrders/GetAllOrders.jsx";
+import Login from "./Components/Login/Login.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -49,8 +48,9 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
       <Route path="placeOrder" element={<Order />} />
-
-
+      <Route path="/login" element={<Login />}>
+        <Route path="getallorders" element={<GetAllOrders />} />
+      </Route>
     </Route>
   )
 );
